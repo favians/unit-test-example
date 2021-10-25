@@ -161,7 +161,7 @@ func TestInsertUserControllers(t *testing.T) {
 	auth := e.Builder(func(req *httpexpect.Request) {
 		req.WithHeader("Authorization", "Bearer "+token)
 	})
-	fmt.Println(token)
+
 	t.Run("Expected Insert user, then call get one By ID and found that user", func(t *testing.T) {
 		dataForInsert := map[string]interface{}{
 			"name":     "user-1",
@@ -177,7 +177,6 @@ func TestInsertUserControllers(t *testing.T) {
 			Expect().
 			Status(http.StatusOK).JSON().Object().
 			Value("users").Object().Value("name").Equal("user-1")
-
 	})
 
 	t.Run("Expected Insert user, then call get one By ID But NOT found that user", func(t *testing.T) {
