@@ -33,6 +33,14 @@ func InsertUser(user models.Users) error {
 	return nil
 }
 
+func UpdateUser(user models.Users) error {
+	if err := config.DB.Updates(&user).Error; err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func LoginUsers(user *models.Users) (interface{}, error) {
 
 	var err error

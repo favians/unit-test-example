@@ -18,6 +18,7 @@ func New() *echo.Echo {
 	auth.GET("", controllers.GetUserByIDControllers)
 	auth.GET("/all", controllers.GetUserControllers)
 	auth.POST("", controllers.InsertUserControllers)
+	auth.PUT("", controllers.UpdateUserControllers)
 
 	return e
 }
